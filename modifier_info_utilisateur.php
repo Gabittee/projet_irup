@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <title>Modifier informations utilisateur</title>
+  <?php include 'navbar.html';?>
+  <link rel="stylesheet" href="formulaire.css" type="text/css" media="screen" />
+
+</head>
+<body>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  
+    <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="text-center">Modifier informations utilisateurs</h1>
+        <form>
+          <div class="form-group">
+            <label for="user">Utilisateur</label>
+            <select class="form-control" id="user">
+              <option>Option 1</option>
+              <option>Option 2</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="rights">Droits</label>
+            <select class="form-control" id="rights">
+              <option>Option 1</option>
+              <option>Option 2</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" class="form-control" id="password">
+          </div>
+          <div class="form-group">
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" class="form-control" id="username">
+          </div>
+          <div class="form-group">
+            <label for="class">Classe</label>
+            <select class="form-control" id="class">
+              <option>Option 1</option>
+              <option>Option 2</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Modifier</button>
+          <button type="submit" class="btn btn-danger btn-block">Supprimer l'utilisateur</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

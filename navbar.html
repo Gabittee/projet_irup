@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <title>navbar</title>
+  <style>
+    .navbar {
+      background-color: #E7F2E7;
+      border: 2px solid green;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+      color: #28a745;
+    }
+
+    .nav-link {
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .nav-link:hover {
+      color: #ffffff;
+      background-color: #28a745;
+    }
+
+    .navbar-brand {
+      color: green;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .navbar-brand:hover {
+      color: #28a745;
+    }
+    
+  </style>
+</head>
+<?php
+session_start(); // On démarre la session
+
+if (!isset($_SESSION['logged_in'])) {
+  header('Location: connexion.php');
+  exit();
+}
+
+
+
+if (isset($_POST['deconnexion'])) {
+    session_destroy(); // On détruit la session
+    header('Location: connexion.php'); // On redirige l'utilisateur vers la page de connexion
+    exit;
+}
+
+
+
+if(isset($_SESSION['user'])) {
+  $user = $_SESSION['user'];
+}
+
+?>
+
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar">
+    <a class="navbar-brand" href="#"><img src="../Logo_irup_CARRE.png" alt="Logo IRUP" width="75" height="48"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="./dashboard.php">Dashboard<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./inscription.php">Inscrire</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./ajouter_alerte.php">Alertes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./liste_eleve.php">liste totale</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-center font-weight-bold" style="font-size: 18px;"><?php echo $user['statut'];  ?></a>
+        </li>
+        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) { ?>
+          <li class="nav-item">
+            <form class="form-inline my-2 my-lg-0" method="POST">
+              <button class="btn btn-danger my-2 my-sm-0" type="submit" name="deconnexion">Deconnexion</button>
+            </form>
+          </li>
+        <?php } ?>
+      </ul>
+    </div>
+  </nav>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  
+</body>
+</html>
