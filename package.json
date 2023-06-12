@@ -1,0 +1,18 @@
+{
+  "name": "sachadb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
